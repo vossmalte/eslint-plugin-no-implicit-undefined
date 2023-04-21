@@ -1,5 +1,5 @@
 module.exports = {
   rules: {
-    "no-undefined-type": require("./rules/no-undefined-type"),
+    "no-undefined-type": require("./rules/eslint-plugin-no-explicit-undefined"),
   },
 };
