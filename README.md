@@ -2,6 +2,26 @@
 
 Disallow the use of `undefined` as an explicit type in TypeScript and instead use optional chaining (`?:`) instead.
 
+## 📚 Rule Examples
+
+This rule disallows the use of undefined as an explicit type in TypeScript. Instead, developers should use optional properties or null.
+
+Examples of **incorrect** code for this rule ❌
+
+```ts
+function example(param: string | undefined) {}
+class Test { constructor(public prop: string) {} }
+interface Example { prop: string | undefined; }
+```
+
+Examples of **correct** code for this rule ✅
+
+```ts
+function example(param?: string) {} 
+class Test { constructor(public prop?: string) {} }
+interface Example { prop?: string; }
+```
+
 ## 🚀 Installation
 
 Install the package using `npm`:
@@ -35,30 +55,6 @@ To configure the rule, add it to your ESLint configuration file (`.eslintrc.json
   }
 }
 ```
-
-## 📚 Rule Examples
-
-This rule disallows the use of undefined as an explicit type in TypeScript. Instead, developers should use optional properties or null.
-
-Examples of **incorrect** code for this rule ❌
-
-```ts
-function example(param: string | undefined) {}
-class Test { constructor(public prop: string) {} }
-interface Example { prop: string | undefined; }
-```
-
-Examples of **correct** code for this rule ✅
-
-```ts
-function example(param?: string) {} 
-class Test { constructor(public prop?: string) {} }
-interface Example { prop?: string; }
-```
-
-## 🔧 Customization
-
-This rule doesn't have any options or customization.
 
 ## 📃 License
 
