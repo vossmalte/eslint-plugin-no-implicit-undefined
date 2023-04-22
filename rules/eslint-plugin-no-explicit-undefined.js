@@ -5,6 +5,7 @@ module.exports = {
       description: 'Disallow explicit undefined type',
       category: 'Best Practices',
       recommended: true,
+      ruleId: 'no-explicit-undefined'
     },
     schema: [],
   },

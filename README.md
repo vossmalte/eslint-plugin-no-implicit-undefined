@@ -1,6 +1,6 @@
 # ESLint Plugin: eslint-plugin-no-explicit-undefined
 
-Disallow the use of `undefined` as an explicit type in TypeScript.
+Disallow the use of `undefined` as an explicit type in TypeScript and instead use optional chaining (`?:`) instead.
 
 ## 🚀 Installation
 
@@ -36,24 +36,24 @@ To configure the rule, add it to your ESLint configuration file (`.eslintrc.json
 }
 ```
 
-## 📚 Rule Details
+## 📚 Rule Examples
 
 This rule disallows the use of undefined as an explicit type in TypeScript. Instead, developers should use optional properties or null.
 
-Examples of incorrect code for this rule:
+Examples of **incorrect** code for this rule ❌
 
 ```ts
-type Example = string | undefined;
-let example: string | undefined = 'hello';
 function example(param: string | undefined) {}
+class Test { constructor(public prop: string) {} }
+interface Example { prop: string | undefined; }
 ```
 
-Examples of correct code for this rule ✅:
+Examples of **correct** code for this rule ✅
 
 ```ts
-type Example = string | null;
-let example: string | null = 'hello';
-function example(param?: string) {}
+function example(param?: string) {} 
+class Test { constructor(public prop?: string) {} }
+interface Example { prop?: string; }
 ```
 
 ## 🔧 Customization
