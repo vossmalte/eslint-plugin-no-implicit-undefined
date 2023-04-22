@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-no-explicit-undefined",
-  "version": "1.0.0",
+  "version": "0.0.3",
   "description": "not allow undefined type during declarations",
   "main": "index.js",
   "scripts": {

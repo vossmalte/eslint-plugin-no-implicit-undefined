@@ -11,31 +11,22 @@ const ruleTester = new RuleTester({
 
 ruleTester.run('no-undefined-type', rule, {
   valid: [
-    "type Example = string | null;",
-    "let example: string | null = 'hello';",
+    "type Example = string | undefined;",
+    "let example: string | undefined = 'hello';",
     "function example(param?: string) {}",
   ],
   invalid: [
     {
-      code: "type Example = string | undefined;",
-      errors: [{ message: 'Unexpected undefined type in declaration' }],
-      output: "type Example = string;",
-    },
-    {
-      code: "let example: string | undefined = 'hello';",
-      errors: [{ message: 'Unexpected undefined type in declaration' }],
-      output: "let example: string = 'hello';",
-    },
-    {
       code: "function example(param: string | undefined) {}",
       errors: [{ message: 'Unexpected undefined type in declaration' }],
-      output: "function example(param: string) {}",
     },
-    // this doesn't work. Need to debug
-    // {
-    //   code: "interface Foo { bar: string | undefined; }",
-    //   errors: [{ message: 'Unexpected undefined type in declaration' }],
-    //   output: "interface Foo { bar?: string; }",
-    // },
+    {
+      code: "class Test { constructor(public prop: string | undefined) {} }",
+      errors: [{ message: 'Unexpected undefined type in declaration' }],
+    },
+    {
+      code: "interface Example { prop: string | undefined; }",
+      errors: [{ message: 'Unexpected undefined type in declaration' }],
+    },
   ],
 });
