@@ -1,7 +1,7 @@
 {
   "name": "eslint-plugin-no-explicit-undefined",
   "version": "0.0.5",
-  "description": "not allow undefined type during declarations",
+  "description": "Eslint rule to prevent undefined declaration in favor of optional chaining (?:) operator in Typescript",
   "main": "index.js",
   "scripts": {
     "test": "jest"
@@ -10,7 +10,8 @@
     "eslint",
     "plugin",
     "undefined",
-    "declaration"
+    "declaration",
+    "typescript"
   ],
   "author": "Menelaos Kotsollaris",
   "license": "MIT",
