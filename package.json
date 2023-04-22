@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-no-explicit-undefined",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Eslint rule to prevent undefined declaration in favor of optional chaining (?:) operator in Typescript",
   "main": "index.js",
   "scripts": {
