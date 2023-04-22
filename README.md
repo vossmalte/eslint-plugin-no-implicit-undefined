@@ -1,6 +1,6 @@
 # ESLint Plugin: eslint-plugin-no-explicit-undefined
 
-Disallow the use of `undefined` as an explicit type in TypeScript and instead use optional chaining (`?:`) instead.
+Disallow the use of `undefined` as an explicit type in TypeScript and instead use optional operator (`?`) instead.
 
 ## 📚 Rule Examples
 

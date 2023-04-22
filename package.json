@@ -1,7 +1,7 @@
 {
   "name": "eslint-plugin-no-explicit-undefined",
-  "version": "0.0.7",
-  "description": "Eslint rule to prevent undefined declaration in favor of optional chaining (?:) operator in Typescript",
+  "version": "1.0.0",
+  "description": "Eslint rule to prevent undefined declaration in favor of optional parameter (?) operator in Typescript",
   "main": "index.js",
   "scripts": {
     "test": "jest"

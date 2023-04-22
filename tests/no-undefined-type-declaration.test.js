@@ -30,5 +30,9 @@ ruleTester.run('no-undefined-type', rule, {
       code: "interface Example { prop: string | undefined; }",
       errors: [{ message }],
     },
+    {
+      code: "const example = (param?: string | undefined) => {}",
+      errors: [{ message }]
+    }
   ],
 });
