@@ -10,7 +10,7 @@ Examples of **incorrect** code for this rule ❌
 
 ```ts
 function example(param: string | undefined) {}
-class Test { constructor(public prop: string) {} }
+class Test { constructor(public prop: string | undefined) {} }
 interface Example { prop: string | undefined; }
 ```
 
