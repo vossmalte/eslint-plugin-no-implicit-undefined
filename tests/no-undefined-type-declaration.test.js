@@ -9,6 +9,8 @@ const ruleTester = new RuleTester({
   },
 });
 
+const message = 'Unexpected undefined type in declaration. Remove the `undefined` type and use optional (?) declaration instead.';
+
 ruleTester.run('no-undefined-type', rule, {
   valid: [
     "type Example = string | undefined;",
@@ -18,15 +20,15 @@ ruleTester.run('no-undefined-type', rule, {
   invalid: [
     {
       code: "function example(param: string | undefined) {}",
-      errors: [{ message: 'Unexpected undefined type in declaration' }],
+      errors: [{ message }],
     },
     {
       code: "class Test { constructor(public prop: string | undefined) {} }",
-      errors: [{ message: 'Unexpected undefined type in declaration' }],
+      errors: [{ message }],
     },
     {
       code: "interface Example { prop: string | undefined; }",
-      errors: [{ message: 'Unexpected undefined type in declaration' }],
+      errors: [{ message }],
     },
   ],
 });

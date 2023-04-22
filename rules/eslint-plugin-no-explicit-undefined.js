@@ -20,7 +20,7 @@ module.exports = {
         if (undefinedType) {
           context.report({
             node: undefinedType,
-            message: 'Unexpected undefined type in declaration',
+            message: 'Unexpected undefined type in declaration. Remove the `undefined` type and use optional (?) declaration instead.',
           });
         }
       }
