@@ -9,14 +9,15 @@ export default createRule({
   defaultOptions: [],
   meta: {
     messages: {
-      message: 'Unexpected optional type in declaration. Remove the `?` type and use `undefined` instead.',
+      message:
+        'Unexpected optional type in declaration. Remove the `?` type and use `undefined` instead.',
     },
     type: 'problem',
     docs: {
       description: 'Disallow implicit undefined type',
     },
     schema: [],
-    fixable: 'code'
+    fixable: 'code',
   },
 
   create: (context) => {
@@ -24,23 +25,21 @@ export default createRule({
       TSPropertySignature(node) {
         if (node.optional) {
           context.report({
-            node, messageId: 'message',
-            fix: fixer => {
-              if (node.key.type != "Identifier")
-                return []
-              if (!node.typeAnnotation)
-                return []
-              const keyNameRangeEnd = node.key.range[1]
-              const typeAnnotationRangeStart = node.typeAnnotation.range[0]
+            node,
+            messageId: 'message',
+            fix: (fixer) => {
+              if (node.key.type != 'Identifier') return [];
+              if (!node.typeAnnotation) return [];
+              const keyNameRangeEnd = node.key.range[1];
+              const typeAnnotationRangeStart = node.typeAnnotation.range[0];
               return [
                 fixer.removeRange([keyNameRangeEnd, typeAnnotationRangeStart]), // remove the ?
-                fixer.insertTextAfterRange(node.typeAnnotation.range, ' | undefined')
-              ]
-            }
-          })
+                fixer.insertTextAfterRange(node.typeAnnotation.range, ' | undefined'),
+              ];
+            },
+          });
         }
       },
-
     };
   },
-}) 
+});

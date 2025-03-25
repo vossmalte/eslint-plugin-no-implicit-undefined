@@ -1,6 +1,6 @@
 # ESLint Plugin: eslint-plugin-no-explicit-undefined
 
-Disallow the use of optional operator (`?`)  as an explicit type in TypeScript and instead use `undefined` instead.
+Disallow the use of optional operator (`?`) as an explicit type in TypeScript and instead use `undefined` instead.
 
 ## 📚 Rule Examples
 
@@ -9,15 +9,19 @@ This rule disallows the use of optional operator (`?`)as an explicit type in Typ
 Examples of **incorrect** code for this rule ❌
 
 ```ts
-interface Example { prop?: string; }
-type Example = { prop?: string; }
+interface Example {
+  prop?: string;
+}
+type Example = { prop?: string };
 ```
 
 Examples of **correct** code for this rule ✅
 
 ```ts
-interface Example { prop: string | undefined; }
-type Example = { prop: string | undefined; }
+interface Example {
+  prop: string | undefined;
+}
+type Example = { prop: string | undefined };
 ```
 
 ## 🚀 Installation

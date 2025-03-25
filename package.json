@@ -1,9 +1,10 @@
 {
   "name": "eslint-plugin-no-implicit-undefined",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "description": "Eslint rule to prefer undefined declaration instead of optional parameter (?) operator in Typescript",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
+    "build": "vite build --mode esm && vite build --mode cjs",
     "test": "vitest"
   },
   "keywords": [
@@ -21,6 +22,7 @@
     "@typescript-eslint/rule-tester": "^8.27.0",
     "@typescript-eslint/utils": "^8.27.0",
     "eslint": "^9.23.0",
+    "vite": "^6.2.3",
     "vitest": "^3.0.9"
   }
 }
