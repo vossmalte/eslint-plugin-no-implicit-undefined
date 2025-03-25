@@ -1,10 +1,12 @@
 {
   "name": "eslint-plugin-no-implicit-undefined",
-  "version": "0.0.5",
-  "description": "Eslint rule to prefer undefined declaration instead of optional parameter (?) operator in Typescript",
-  "main": "dist/index.js",
+  "version": "0.0.6",
+  "description": "Eslint rule to prefer undefined declaration over optional parameter (?) operator in Typescript",
+  "type": "module",
+  "main": "dist/plugin.js",
   "scripts": {
-    "build": "vite build --mode esm && vite build --mode cjs",
+    "build": "esbuild plugin.ts --platform=node --external:eslint --bundle --outdir=dist/",
+    "lint": "eslint",
     "test": "vitest"
   },
   "keywords": [
@@ -17,11 +19,18 @@
   "author": "vossmalte",
   "license": "MIT",
   "devDependencies": {
+    "@eslint/js": "^9.23.0",
     "@typescript-eslint/eslint-plugin": "^8.27.0",
     "@typescript-eslint/parser": "^8.27.0",
     "@typescript-eslint/rule-tester": "^8.27.0",
     "@typescript-eslint/utils": "^8.27.0",
+    "esbuild": "^0.25.1",
     "eslint": "^9.23.0",
+    "eslint-plugin-eslint-plugin": "^6.4.0",
+    "eslint-plugin-n": "^17.16.2",
+    "globals": "^16.0.0",
+    "jiti": "^2.4.2",
+    "typescript-eslint": "^8.28.0",
     "vite": "^6.2.3",
     "vitest": "^3.0.9"
   }
