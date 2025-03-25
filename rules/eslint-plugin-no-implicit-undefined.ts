@@ -4,7 +4,7 @@ const createRule = ESLintUtils.RuleCreator(
   () => `https://github.com/vossmalte/eslint-plugin-no-implicit-undefined/README.md`,
 );
 
-export default createRule({
+const rule = createRule({
   name: 'no-implicit-undefined',
   defaultOptions: [],
   meta: {
@@ -43,3 +43,5 @@ export default createRule({
     };
   },
 });
+
+export default rule;

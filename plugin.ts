@@ -1,11 +1,12 @@
 import type { ClassicConfig, FlatConfig, Linter } from '@typescript-eslint/utils/ts-eslint';
 import rule from './rules/eslint-plugin-no-implicit-undefined';
+import {name,version} from './package.json';
 
 const plugin = {
-  meta: { name: 'eslint-plugin-no-implicit-undefined', version: '0.1.0' },
+  meta: { name, version },
   rules: {
     'no-implicit-undefined': rule,
-  },
+  } satisfies Linter.PluginRules,
   configs: {
     // configs are assigned later
     'legacy-recommended': {} satisfies ClassicConfig.Config,
@@ -15,7 +16,7 @@ const plugin = {
 
 Object.assign(plugin.configs, {
   'legacy-recommended': {
-    plugins: ['implicit-undefined'],
+    plugins: ['no-implicit-undefined'],
     rules: {
       'no-implicit-undefined/no-implicit-undefined': 'error',
     },

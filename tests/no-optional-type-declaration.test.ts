@@ -21,3 +21,13 @@ ruleTester.run('no-undefined-type', rule, {
     },
   ],
 });
+
+// eslint tests
+// eslint-disable-next-line no-implicit-undefined/no-implicit-undefined
+type Example1 = { prop?: string };
+
+// eslint-disable-next-line no-implicit-undefined/no-implicit-undefined
+interface Example2 {prop?: string;}
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+type UseTypes = Example1 | Example2;
