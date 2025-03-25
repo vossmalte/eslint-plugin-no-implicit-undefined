@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-no-implicit-undefined",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Eslint rule to prefer undefined declaration over optional parameter (?) operator in Typescript",
   "type": "module",
   "main": "dist/plugin.js",
