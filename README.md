@@ -1,4 +1,4 @@
-# ESLint Plugin: eslint-plugin-no-explicit-undefined
+# ESLint Plugin: eslint-plugin-no-implicit-undefined
 
 Disallow the use of optional operator (`?`) as an explicit type in TypeScript and instead use `undefined` instead.
 
@@ -34,14 +34,24 @@ npm install eslint-plugin-no-implicit-undefined --save-dev
 
 ## 📝 Configuration
 
-To configure the rule, add it to your ESLint configuration file (`.eslintrc.json`, `.eslintrc.js`, etc.):
+### ESLint 9+ (Flat Config)
+
+```js
+// eslint.config.js
+import noImplicitUndefined from 'eslint-plugin-no-implicit-undefined';
+
+export default [
+  noImplicitUndefined.configs.recommended,
+];
+```
+
+### ESLint 8 (Legacy Config)
 
 ```json
 {
-  "extends": ["custom"],
-  "plugins": ["no-optional-type-declaration"],
+  "plugins": ["no-implicit-undefined"],
   "rules": {
-    "no-optional-type-declaration/no-implicit-undefined": "error"
+    "no-implicit-undefined/no-implicit-undefined": "error"
   }
 }
 ```

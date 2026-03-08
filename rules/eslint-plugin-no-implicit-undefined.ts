@@ -28,13 +28,21 @@ const rule = createRule({
             node,
             messageId: 'message',
             fix: (fixer) => {
-              if (node.key.type != 'Identifier') return [];
+              if (node.key.type !== 'Identifier') return [];
               if (!node.typeAnnotation) return [];
-              const keyNameRangeEnd = node.key.range[1];
-              const typeAnnotationRangeStart = node.typeAnnotation.range[0];
+              // Check if union already contains undefined — report but don't fix
+              const sourceCode = context.getSourceCode();
+              const typeAnnotationText = sourceCode.getText(node.typeAnnotation);
+              if (typeAnnotationText.includes('undefined')) return [];
+              const questionToken = sourceCode.getFirstTokenBetween(
+                node.key,
+                node.typeAnnotation,
+                { filter: (token) => token.value === '?' }
+              );
+              if (!questionToken) return [];
               return [
-                fixer.removeRange([keyNameRangeEnd, typeAnnotationRangeStart]), // remove the ?
-                fixer.insertTextAfterRange(node.typeAnnotation.range, ' | undefined'),
+                fixer.remove(questionToken),
+                fixer.insertTextAfter(node.typeAnnotation, ' | undefined'),
               ];
             },
           });
